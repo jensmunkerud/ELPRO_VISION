@@ -1,0 +1,6 @@
+flask
+werkzeug
+ultralytics
+norfair
+opencv-python
+numpy
