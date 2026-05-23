@@ -25,7 +25,7 @@ def cors_preflight():
 	return ("", 204)
 
 DEFAULT_MODEL_PATH = "granulatModels/granulat177def.pt"
-DEFAULT_SOURCE = "test_videos/shii.mp4"
+DEFAULT_SOURCE = "test_videos/video.mp4"
 CONF_THRES = 0.05
 OUTPUT_STREAM_HEIGHT = 1080
 UPLOAD_DIR = os.path.join(os.path.dirname(__file__), "uploads")

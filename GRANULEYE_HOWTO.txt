@@ -1,0 +1,18 @@
+GRANULEYE HOWTO:
+
+* Skru på systemet
+* Koble til WiFi: PiNetwork, passord: Elpro123
+
+Nettsiden styres da fra:
+raspberrypi.local:5000
+eller
+10.42.0.1:5000
+
+For å koble til pien, gjør følgende:
+* Åpne en terminal og kjør kommandoen:
+ssh plasticpi@raspberrypi.local
+passordet er Elpro123
+-> Du er nå inne i Pien, for å få IP'en, kjør
+hostname -I
+Nettsiden styres da fra denne ipen :5000, eks:
+http://10.42.0.1:5000/

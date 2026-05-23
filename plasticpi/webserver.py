@@ -33,10 +33,10 @@ PROGRAM_MAC_DIR = os.path.join(os.path.dirname(SCRIPT_PATH), "download_program_m
 PROGRAM_WINDOWS_DIR = os.path.join(os.path.dirname(SCRIPT_PATH), "download_program_windows")
 UPLOAD_DIR = os.path.join(os.path.dirname(__file__), "uploads")
 DEFAULT_FILENAME = "video.mp4"
-DEFAULT_FPS = 60
-DEFAULT_WIDTH = 640
-DEFAULT_HEIGHT = 1080
-DEFAULT_RESOLUTION_KEY = "640x1080"
+DEFAULT_FPS = 120
+DEFAULT_WIDTH = 1536
+DEFAULT_HEIGHT = 864
+DEFAULT_RESOLUTION_KEY = "1536x864 120fps"
 DEFAULT_ANALYSIS_MODEL = "granulatModels/granulat177def.pt"
 ALLOWED_ANALYSIS_EXTENSIONS = {".mp4"}
 
@@ -304,18 +304,12 @@ def wait_for_script_stop(timeout_seconds=6):
 		time.sleep(0.2)
 	return not is_script_running()
 
-
-def get_processes():
-	result = subprocess.run(["ps", "aux"], stdout=subprocess.PIPE)
-	return result.stdout.decode()
-
 # ---------------- ROUTES ----------------
 @app.route('/')
 def index():
 	os.makedirs(DATA_DIR, exist_ok=True)
 	files = sorted(os.listdir(DATA_DIR))
 	running = is_script_running()
-	processes = get_processes()
 	message = request.args.get("message", "")
 	selected_model = request.args.get("model", DEFAULT_ANALYSIS_MODEL)
 	selected_resolution = request.args.get("resolution", DEFAULT_RESOLUTION_KEY)
@@ -347,10 +341,10 @@ def index():
 	<h2>camSave.py Status: {{ 'RUNNING' if running else 'STOPPED' }}</h2>
 	<form action="/start" method="post" style="margin-bottom: 1rem;">
 		<label>Filename (.mp4):</label><br>
-		<input name="filename" type="text" value="video.mp4" required><br><br>
+		<input name="filename" type="text" value="{{ default_filename }}" required><br><br>
 
 		<label>FPS:</label><br>
-		<input name="fps" type="number" min="1" value="60" required><br><br>
+		<input name="fps" type="number" min="1" value="{{ default_fps }}" required><br><br>
 
 		<label>Resolution:</label><br>
 		<select name="resolution">
@@ -652,9 +646,6 @@ def index():
 	{% endfor %}
 	</ul>
 
-	<h2>Processes</h2>
-	<pre style="height:300px; overflow:auto;">{{processes}}</pre>
-
 	<h2>Program Folder</h2>
 	<div style="display:flex; gap:0.5rem; align-items:center; flex-wrap:wrap;">
 		<form action="/download_program" method="get" style="margin:0;">
@@ -667,7 +658,7 @@ def index():
 			<button type="submit">Download Windows</button>
 		</form>
 	</div>
-	""", files=files, running=running, processes=processes, analysis=analysis_view, message=message, camera_available=CAMERA_AVAILABLE, camera_active=camera_active, available_models=available_models, selected_model=selected_model, resolution_options=resolution_options, selected_resolution=selected_resolution)
+	""", files=files, running=running, analysis=analysis_view, message=message, camera_available=CAMERA_AVAILABLE, camera_active=camera_active, available_models=available_models, selected_model=selected_model, resolution_options=resolution_options, selected_resolution=selected_resolution, default_filename=DEFAULT_FILENAME, default_fps=DEFAULT_FPS)
 
 @app.route('/download/<path:filename>')
 def download_file(filename):
