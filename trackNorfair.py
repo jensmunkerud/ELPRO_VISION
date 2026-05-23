@@ -6,8 +6,8 @@ import numpy as np
 
 # Simple settings
 modelPath = "granulatModels/multidetect.pt"
-source = "newDataset/newVideo.mp4"
-saveVideo = True
+source = "/Users/jens/Downloads/output.mp4"
+saveVideo = False
 outputPath = "results/newVideo.mp4"
 outputFps = 0.0
 
