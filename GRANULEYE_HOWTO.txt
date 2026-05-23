@@ -16,3 +16,5 @@ passordet er Elpro123
 hostname -I
 Nettsiden styres da fra denne ipen :5000, eks:
 http://10.42.0.1:5000/
+
+testet stabilt på MAX 80fps, PI'en kan crashe med mer fps.
