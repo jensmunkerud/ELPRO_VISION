@@ -33,10 +33,10 @@ PROGRAM_MAC_DIR = os.path.join(os.path.dirname(SCRIPT_PATH), "download_program_m
 PROGRAM_WINDOWS_DIR = os.path.join(os.path.dirname(SCRIPT_PATH), "download_program_windows")
 UPLOAD_DIR = os.path.join(os.path.dirname(__file__), "uploads")
 DEFAULT_FILENAME = "video.mp4"
-DEFAULT_FPS = 120
+DEFAULT_FPS = 80
 DEFAULT_WIDTH = 1536
 DEFAULT_HEIGHT = 864
-DEFAULT_RESOLUTION_KEY = "1536x864 120fps"
+DEFAULT_RESOLUTION_KEY = "1536x864 80fps"
 DEFAULT_ANALYSIS_MODEL = "granulatModels/granulat177def.pt"
 ALLOWED_ANALYSIS_EXTENSIONS = {".mp4"}
 
@@ -44,7 +44,7 @@ ALLOWED_RESOLUTIONS = {
 	"640x1080": {"size": (640, 1080)},
 	"1280x1080": {"size": (1280, 1080)},
 	"1920x1080": {"size": (1920, 1080)},
-	"1536x864 120fps": {"size": (1536, 864), "fps": 120},
+	"1536x864 120fps": {"size": (1536, 864), "fps": 80},
 }
 
 # ---------------- CAMERA STREAM ----------------
