@@ -8,6 +8,19 @@ raspberrypi.local:5000
 eller
 10.42.0.1:5000
 
+HVORDAN GJØRE EN PRØVE:
+* Last ned programmet du må kjøre lokalt i bunn av nettsiden (kompilert for mac og windows)
+* Kjør dette programmet og forsikre deg om at Local pc_agent sier Online
+* Velg navn på videoen (Filename), må ende med .mp4
+* La FPS og Resolution stå
+* Start Script begynner opptak
+* Kjør prøven så igjennom (så fort som mulig for å minimere dødtid i opptaket)
+* Stop Script så fort prøven er ferdig
+* Last ned opptaket fra Files menyen
+* Velg så den nedlastede mp4 filen, og velg modellen (som fulgte med i programnedlastingen)
+-> multidetect er trent på granulat og perler, granulat177def er original modell trent kun på granulat
+* Analyser prøven med Analyze.
+
 For å koble til pien, gjør følgende:
 * Åpne en terminal og kjør kommandoen:
 ssh plasticpi@raspberrypi.local
