@@ -1,5 +1,7 @@
 # ELPRO_VISION
 
+![Results (video)](results/Best_Video_output.gif)
+
 ## System for counting the amount of plastic granulate flowing through a pipe
 
 <table>
@@ -11,7 +13,7 @@
 
 ## Result showing trained YOLO26n model successfully detecting granulate and Norfair tracking
 
-![Results](images/RESULT.png)
+![Results (image)](images/RESULT.png)
 
 ## Website hosted by Raspberry PI controlling the system
 
